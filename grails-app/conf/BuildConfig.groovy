@@ -28,6 +28,9 @@ grails.project.repos.bintray.type = "maven"
 grails.project.repos.bintray.username = "$externalConfig.grails.project.repos.bintray.username"
 grails.project.repos.bintray.password = "$externalConfig.grails.project.repos.bintray.password"
 
+debug.print "Using usr: $externalConfig.grails.project.repos.bintray.username"
+debug.print "Using pwd: $externalConfig.grails.project.repos.bintray.password"
+
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
     inherits("global") {
