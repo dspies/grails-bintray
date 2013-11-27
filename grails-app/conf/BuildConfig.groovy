@@ -16,6 +16,18 @@ grails.project.fork = [
 
 grails.project.dependency.resolver = "maven" // or ivy
 
+    def props = new Properties()
+    new File("buildconfig.properties").withReader{
+        props.load(it)
+    }
+    def externalConfig = new ConfigSlurper().parse(props)
+
+grails.project.repos.default = "bintray"
+grails.project.repos.bintray.url = "https://api.bintray.com/maven/dspies/maven/grails-bintray"
+grails.project.repos.bintray.type = "maven"
+grails.project.repos.bintray.username = "$externalConfig.grails.project.repos.bintray.username"
+grails.project.repos.bintray.password = "$externalConfig.grails.project.repos.bintray.password"
+
 grails.project.dependency.resolution = {
     // inherit Grails' default dependencies
     inherits("global") {
